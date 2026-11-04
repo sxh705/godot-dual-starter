@@ -38,8 +38,19 @@ start.tscn（开始页：星启 / STARSPARK + 开始游戏 / 设置）
 
 ## 导出
 
-- **Windows**：双击 `导出Windows.cmd` → `build/windows/StarSpark.exe`（105 MB，实测约 10 秒）
-- **Android**：双击 `导出Android.cmd` → `build/android/StarSpark.apk`（增量构建约 1–2 分钟）
+- **Windows**：双击 `导出Windows.cmd` → `build/windows/StarSpark.exe`（约 104 MB，实测 5–15 秒）
+- **Android**：双击 `导出Android.cmd` → `build/android/StarSpark.apk`（约 76 MB，增量 1–2 分钟，首次 3–6 分钟）
+
+两个脚本都以**显式控制台窗口**执行：先打印工程路径、引擎版本、JDK / SDK / 签名库位置，再原样输出 Godot 与 Gradle 的全部日志，结束后停在 `Press any key`，窗口不闪退。界面上要能看见导出过程，不要用后台静默方式跑，否则长时间无输出时无法判断是卡住还是在编译。
+
+失败时窗口同样保留，往上翻第一条 `ERROR` / `FAILURE` 即可；Gradle 明细在 `android/build/build/`。每次导出的结果另记一行在 `build/last-export.txt`（`ok` / `fail` + 退出码 + 产物路径），供脚本或人工快速判定。
+
+可选参数：
+
+```
+导出Android.cmd /nopause      :: 跑完即退，不等人按键（自动化、CI 用）
+set EXPORT_VERBOSE=1           :: 追加 Godot --verbose，日志更详细
+```
 
 Gradle 已配置走 `127.0.0.1:7897` 代理。手机连上后 `adb devices` 能看到设备即可直装：
 ```
