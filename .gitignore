@@ -13,3 +13,6 @@
 android/build/libs/
 .gradle/
 
+# Android Gradle 构建中间产物（实测可达 800MB+，可删可重建）
+android/build/build/
+
