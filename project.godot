@@ -10,16 +10,23 @@ config_version=5
 
 [application]
 
-config/name="HelloGodot"
-config/description="双端游戏模板：起点只有一行 Hello, World!"
-run/main_scene="res://main.tscn"
+config/name="StarSpark"
+config/description="星启 STARSPARK —— Godot 4.7 双端游戏模板"
+run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Settings="*res://scripts/settings.gd"
+
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+; 手机端默认横屏（DisplayServer.SCREEN_LANDSCAPE）
 window/handheld/orientation=1
 
 [rendering]
