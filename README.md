@@ -34,7 +34,7 @@ start.tscn（开始页：星启 / STARSPARK + 开始游戏 / 设置）
 - **音量**：0–100 滑条，实时作用于 Master 总线
 - **光标**：系统默认 / 隐藏光标 / 准星光标（触屏设备自动禁用该项）
 - 两项设置持久化在 `user://settings.cfg`（Windows 在 `%APPDATA%\Godot\app_userdata\StarSpark\`，安卓在应用私有目录），启动时自动恢复
-- 手机端横屏：`project.godot` 的 `display/window/handheld/orientation=1`（SCREEN_LANDSCAPE）
+- 手机端横屏：`project.godot` 的 `display/window/handheld/orientation=4`（SCREEN_SENSOR_LANDSCAPE；Godot 枚举 0=横屏、1=竖屏，写 1 会锁成竖屏）
 
 ## 导出
 

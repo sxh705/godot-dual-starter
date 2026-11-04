@@ -26,8 +26,9 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-; 手机端默认横屏（DisplayServer.SCREEN_LANDSCAPE）
-window/handheld/orientation=1
+; 手机端横屏双方向跟随（DisplayServer.SCREEN_SENSOR_LANDSCAPE，值 4；
+; 注意 Godot 枚举 0=Landscape、1=Portrait，不要写 1）
+window/handheld/orientation=4
 
 [rendering]
 
